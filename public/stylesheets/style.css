@@ -1,0 +1,144 @@
+/* CSS mit Flexbox */
+/* Basic style */
+body {
+
+    background-color: #eeeeee;
+}
+header,
+main,
+nav,
+footer {
+    border: 1px solid #000;
+    border-radius: 12px;
+    margin: 8px;
+    padding: 12px;
+}
+
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+
+.left{
+    width: 30%;
+    float: left;
+
+}
+
+.right{
+    width: 30%;
+    float: right;
+
+}
+
+/* sort style */
+
+.sort {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+section > button{
+
+    flex-grow: 1;
+
+}
+
+
+.ulcontainer {
+    padding: 0;
+    margin: 0;
+    float: left;
+    width: 100%;
+}
+
+
+/* List style */
+
+
+
+
+
+.label {
+    display: flex;
+    flex-wrap: wrap;
+
+
+}
+label > div{
+
+    flex-grow: 2;
+
+
+
+}
+
+label > button{
+
+    flex-grow: 1;
+
+
+}
+
+
+li {
+    list-style-type: none;
+    border: 1px solid #000;
+    display: flex;
+
+}
+
+li label{
+    display: flex;
+    width: 100%;
+
+}
+
+li div{
+    width: 100%;
+
+    display: flex;
+}
+
+li span {
+    font-size: 2em;
+}
+
+
+
+
+/* Button styling */
+
+.btn {
+    border: none;
+    color: black;
+    padding: 1em 1.8em;
+    cursor: pointer;
+}
+
+.success {background-color: #4CAF50;}
+.success:hover {background-color: #46a049;}
+
+.info {background-color: #2196F3;}
+.info:hover {background: #0b7dda;}
+
+.danger {background-color: #f44336;
+text-decoration:  none}
+.danger:hover {background: #da190b;}
+
+.default {
+background-color: #e7e7e7;
+color: black; 
+border: 1px solid #000; 
+}
+
+.default:hover {background: #ddd;}
+
+.cancel{
+
+    font: menu;
+}
