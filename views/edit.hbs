@@ -1,17 +1,16 @@
 <main>
 
-    <form>
-        Title<br>
-        <input type="text" name="add title" id="title"><br>
-        Description:<br>
-        <input type="textfield" name="description"id="description">
-        Due Date:<br>
-        <input type="date" name="duedate"id="date">
+    <form method="POST" action="/edit/{{task._id}}">
+                <label for="Title">Titel
+                <input type="text" name="add title" id="title" value="{{task.title}}">
+                <label for="description">Description
+                <input type="text" name="description"id="description" value="{{task.description}}">
+                <label for="duedate">Date
+                <input type="date" name="duedate" id="date" value="{{task.date}}">
+                <input type="submit" class="btn success" value="Save" id="createTask">
 
-
+        <a href="/" class="btn danger cancel">Cancel</a>
     </form>
-    <input type="button" class="btn success" value="Submit" id="createTask"></input>
 
-    <a href="index.html" class="btn danger cancel">Cancel</a>
 </main>
 

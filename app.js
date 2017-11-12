@@ -1,20 +1,27 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var hbs = require('express-handlebars' );
+const express = require("express");
+const path = require("path");
+const bodyParser = require("body-parser");
+const hbs = require("express-handlebars" );
+const mongoose = require('mongoose');
 
 
-var index = require('./routes/index');
-var edit = require('./routes/edit');
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/tasks', {useMongoClient: true});
 
-var app = express();
+let db = mongoose.connection;
 
-// view engine setup
-// app.set('views', path.join(__dirname, 'views'));
+db.once("open", function () {
+   console.log("DB CONNECTED")
+});
 
+db.on("error", function (err) {
+    console.log(err);
+});
+
+
+const app = express();
+
+let Task = require("./models/task");
 
 app.engine( 'hbs', hbs( {
     extname: 'hbs',
@@ -23,38 +30,88 @@ app.engine( 'hbs', hbs( {
     partialsDir: __dirname + '/views/partials/'
 } ) );
 
-
-
 app.set('view engine', 'hbs');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/edit', edit);
+//Routes
+app.get("/", function(req,res){
+    Task.find({}, function (err, tasks) {
+        if (err){
+            console.log(err);
+        } else {
+            res.render("index", {
+                tasks: tasks
+            });
+            }
+
+    });
+   });
 
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+
+
+app.get("/edit/:id", function(req,res){
+    Task.findById(req.params.id, function (err, task) {
+        res.render("edit", {
+            task:task
+
+        });
+
+    });
+
 });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.get("/add", function(req,res){
+    res.render("add");
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
 });
 
-module.exports = app;
+
+
+app.post("/add", function (req, res) {
+
+    let task = new Task();
+
+    task.title = req.body.title;
+    task.description = req.body.description;
+    task.date = req.body.date;
+
+    task.save(function (err) {
+       if (err){
+           console.log(err);
+           return;
+       } else {
+           res.redirect("/");
+
+       }
+    });
+
+});
+
+app.post("/edit:id", function (req, res) {
+
+    let task = {};
+
+    task.title = req.body.title;
+    task.description = req.body.description;
+    task.date = req.body.date;
+
+    let query = {_id:req.params.id};
+
+    task.update(query, task,function (err) {
+        if (err){
+            console.log(err);
+            return;
+        } else {
+            res.redirect("/");
+
+        }
+    });
+
+});
+
+const port = 3001;
+app.listen(port, () => {  console.log(`Server running at Port ${port}`); });

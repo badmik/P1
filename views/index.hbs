@@ -1,25 +1,26 @@
 <section class="sort">
     <h2>Sorter</h2>
     <button class="btn default" id="due">Sort by due</button>
-<button class="btn default" id="created">Sort by created</button>
-<button class="btn default" id="prio">Sort by priority</button>
-<button class="btn default" id="finish">Show finished</button>
+    <button class="btn default" id="created">Sort by created</button>
+    <button class="btn default" id="prio">Sort by priority</button>
+    <button class="btn default" id="finish">Show finished</button>
 </section>
-<main id="containerTasks"></main>
-
+<main id="containerTasks">
 
     <script id="task-list-template" type="text/x-handlebars-template">
-{{#each task}}
-        <li class="liItem">
-        <div>
-        <label for="checkBox"><input id="checkBox" type="checkbox"><span class="date">{{task.date}}</span> <span class="name">{{task.name}}</span>
-    <span class="description">{{task.description}}</span><button class="btn info" data-edit-btn-{{task.id}}>Edit</button></label>
-    </div>
-    </li>
-{{/each}}
+            {{#each tasks}}
+                    <li class="liItem">
+                    <div>
+                        <label for="checkBox"><input id="checkBox" type="checkbox">
+                            <span class="date">{{date}}</span>
+                            <span class="name">{{name}}</span>
+                            <span class="description">{{description}}</span>
+                            <a href="/edit/{{id}}"class="btn info">Edit</a></label>
+                            <a href="/delete/{{id}}"class="btn danger">Delete</a></label>
+
+                    </div>
+                </li>
+            {{/each}}
 </script>
 
-<!-- [geh]: scripts wurden falsch referenziert:
-  Sie befinden sich im Verzeichnis ./js
-  Der Browser kann nicht auf den Root-Server-Folder /JS zugreifen; dieser wird von node.js nicht publiziert (siehe index.mjs).
--->
+</main>

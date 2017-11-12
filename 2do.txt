@@ -1,0 +1,23 @@
+npm install --save express nodemon  body-parser express-handlebars hbs mongoose
+
+express-hbs ?????
+
+
+
+
+2dos:
+
+
+es 2016 syntax arrow functions
+
+sort
+
+stlye switcher
+
+schöner
+
+HBS not working
+
+delete
+
+!!!!!!!!!!!!root folder /edit
