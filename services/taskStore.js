@@ -1,5 +1,5 @@
 const Datastore = require('nedb');
-const db = new Datastore({ filename: './data/order.db', autoload: true });
+const db = new Datastore({ filename: './data/task.db', autoload: true });
 
 function Task(taskName, taskDescription, taskDate)
 {
