@@ -1,4 +1,8 @@
-npm install --save express nodemon  body-parser express-handlebars hbs mongoose
+npm install --save express nodemon  body-parser express-hbs nedb method-override
+
+
+
+ hbs mongoose
 
 express-hbs ?????
 
@@ -8,7 +12,6 @@ express-hbs ?????
 2dos:
 
 
-es 2016 syntax arrow functions
 
 sort
 
@@ -21,3 +24,33 @@ HBS not working
 delete
 
 !!!!!!!!!!!!root folder /edit
+
+
+MI: CSS raining and make structure css done
+
+
+css
+
+html?
+
+Struktur gem abend 7 bsp ??????
+
+
+sort
+
+style switcher
+
+Views?
+
+
+GEM SILVAN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Modulasierieren gem. Pizza
+
+
+nur json über server keine views
+
+rednern auf client
+
+
+CSS
