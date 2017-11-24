@@ -24,6 +24,17 @@ import {default as model} from "./model.js";
     }
 
 
+    function deleteTask(id) {
+        let url = "`http://localhost:3003/tasks/${id}\`";
+        return fetch(url + '/' + id, {
+            method: 'delete'
+        }).then(tasks =>
+            tasks.json().then(json => {
+                return json;
+            })
+        );
+    }
+
 
     $(function () {
         TasksTemplateProcessor =  Handlebars.compile($("#tasks-list-template").html());
