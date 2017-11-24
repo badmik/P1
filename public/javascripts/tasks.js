@@ -19,7 +19,7 @@ import {default as model} from "./model.js";
 
 
     function getTasks(id) {
-        let url = `http://localhost:3003/tasks/${id}\`;
+        let url = "`http://localhost:3003/tasks/${id}\`";
         return fetch(url).then(tasks => tasks.json());
     }
 
