@@ -28,11 +28,8 @@ import {default as model} from "./model.js";
         let url = "`http://localhost:3003/tasks/${id}\`";
         return fetch(url + '/' + id, {
             method: 'delete'
-        }).then(tasks =>
-            tasks.json().then(json => {
-                return json;
-            })
-        );
+        })
+            .then(tasks => tasks.json());
     }
 
 
