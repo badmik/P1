@@ -1,5 +1,4 @@
-const Datastore = require('nedb');
-const db = new Datastore({ filename: './data/task.db', autoload: true });
+
 
 function Task(taskName, taskDescription, taskDate)
 {
@@ -21,21 +20,21 @@ function publicAddTask(taskName, taskDescription, taskDate, callback)
 }
 
 function publicRemove(id, callback) {
-    db.update({_id: id}, {$set: {"state": "DELETED"}}, {returnUpdatedDocs:true}, function (err, numDocs, doc) {
-        callback(err, doc);
+    db.update({_id: id}, {$set: {"state": "DELETED"}}, {returnUpdatedDocs:true}, function (err, numDocs, task) {
+        callback(err, task);
     });
 }
 
 function publicGet(id, callback)
-{   db.findOne({ _id: id }, function (err, doc) {
-        callback( err, doc);
+{   db.findOne({ _id: id }, function (err, task) {
+        callback( err, task);
     });
 }
 
 function publicAll()
 {
-    db.find({}, function (err, docs) {
-        callback( err, docs);
+    db.find({}, function (err, tasks) {
+        callback( err, tasks);
     });
 }
 

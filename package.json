@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "webstorm . & mongod & sleep 5 & nodemon app.js",
+    "start": "node app.js",
+    "dev": "webstorm . & sleep 5 & nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mike Bader",

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+       <title>taskR</title>
+    <link rel='stylesheet' href='./stylesheets/style.css' />
+
+
+</head>
+<body>
+<header>
+    <label for="styleSwitcher">Style</label>
+    <select id="styleSwitcher">
+        <option value="dark">Dark</option>
+        <option value="Light">Light</option>
+    </select>
+</header>
+
+<main>
+
+    <form id="myForm">
+        <label for="name">Name</label>
+        <input type="text" value="add name" id="name"><br>
+        <label for="description">Description</label>
+        <input type="text" value="add description" id="description">
+        <label for="date">Date</label>
+        <input type="date" id="date">
+    </form>
+    <input type="button" class="btn success" value="send" id="createTask">
+    <input type="button" class="btn danger cancel" value="Cancel" id="cancelEdit">
+
+
+
+</main>
+
+
+
+<script src="./javascripts/array.js"></script>
+<script src="./javascripts/jquery-1.11.3.min.js"></script>
+<script src="./javascripts/handlebars.min.js"></script>
+<script type="module" src="./javascripts/model.js"></script>
+<script type="module" src="./javascripts/tasks.js"></script>
+
+</body>
+</html>

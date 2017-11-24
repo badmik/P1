@@ -6,51 +6,22 @@ npm install --save express nodemon  body-parser express-hbs nedb method-override
 
 express-hbs ?????
 
+hbs files html draus machen
+
 
 
 
 2dos:
 
+css
 
 
 sort
 
 stlye switcher
 
-schöner
 
-HBS not working
-
-delete
-
-!!!!!!!!!!!!root folder /edit
+HBS
 
 
-MI: CSS raining and make structure css done
 
-
-css
-
-html?
-
-Struktur gem abend 7 bsp ??????
-
-
-sort
-
-style switcher
-
-Views?
-
-
-GEM SILVAN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-Modulasierieren gem. Pizza
-
-
-nur json über server keine views
-
-rednern auf client
-
-
-CSS

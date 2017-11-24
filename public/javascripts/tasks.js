@@ -1,8 +1,8 @@
-import {default as model} from "./../../models/model.js";
+import {default as model} from "./model.js";
 
 ;(function($) {
 
-    const taskManager = new model.Taskmanager();
+    const taskManager = new model.TaskManager();
 
     function showTasks() {
         $("#containerTasks").html(TasksTemplateProcessor({ tasks: taskManager.tasks }));
@@ -18,7 +18,7 @@ import {default as model} from "./../../models/model.js";
         $(document).on("click", "input[send]", send());
         $("#createTask").click(
             function () {
-                Taskmanager.add($("#name").val());
+                Taskmanager.addTask($("#name").val());
                 showTasks();
             });
     updateUI();

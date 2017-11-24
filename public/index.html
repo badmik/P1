@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>taskR</title>
+<link rel='stylesheet' href='stylesheets/style.css' />
+</head>
+
+<body>
+<header>
+    <div class="wrapper">
+        <div class="left">
+            <button class="btn success" id="btnAddTask" onclick="location.href='edit.html';">New Task</button>
+        </div>
+        <div class="right">
+            <select class="styleSwitcher">
+            <option value="dark">Dark</option>
+            <option value="Light">Light</option>
+            </select>
+        </div>
+    </div>
+</header>
+
+<main id="containerTasks"></main>
+<section class="sort">
+    <button class="btn default">Sort by due</button>
+    <button class="btn default">Sort by created</button>
+    <button class="btn default">Sort by priority</button>
+    <button class="btn default">Show finished</button>
+</section>
+
+<script id="task-list-template" type="text/x-handlebars-template">
+    {{#each task}}
+    <li class="liItem">
+        <div>
+            <label for="checkBox"><input id="checkBox" type="checkbox"><span class="date">{{date}}</span> <span class="title">{{title}}</span>
+            <span class="description">{{description}}</span><button class="btn info" data-edit-btn-{{task.id}}>Edit</button>
+        </div>
+    </li>
+    {{/each}}
+</script>
+
+<script src="./javascripts/array.js"></script>
+<script src="./javascripts/jquery-1.11.3.min.js"></script>
+<script src="./javascripts/handlebars.min.js"></script>
+<script type="module" src="./javascripts/model.js"></script>
+<script type="module" src="./javascripts/tasks.js"></script>
+</body>
+
+</html>
